@@ -1,19 +1,22 @@
 <template>
   <div class="page">
     <h2>认证登录</h2>
-    <form @submit.prevent="login">
-      <div>
-        <label for="username">用户名：</label>
-        <input type="text" id="username" v-model="username" required>
-      </div>
-      <div>
-        <label for="password">密码：</label>
-        <input type="password" id="password" v-model="password" required>
-      </div>
-      <div>
-        <button type="submit">登录</button>
-      </div>
-    </form>
+    <div>
+      <form @submit.prevent="login">
+        <div>
+          <label for="username">用户名：</label>
+          <input type="text" id="username" v-model="username" required>
+        </div>
+        <div>
+          <label for="password">密码：</label>
+          <input type="password" id="password" v-model="password" required>
+        </div>
+        <div class="button-group">
+          <button type="submit">登录</button>
+          <button type="button" @click="goToRegister">注册</button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -21,6 +24,7 @@
 import {ref} from 'vue';
 import {post} from "@/net";
 import router from "@/router/router";
+
 const username = ref('');
 const password = ref('');
 const login = () => {
@@ -39,6 +43,10 @@ const login = () => {
     }
   });
 }
+
+const goToRegister = () => {
+  router.push("/register");
+}
 </script>
 
 <style scoped>
@@ -53,6 +61,7 @@ const login = () => {
   height: 100vh;
   /* 其他样式 */
 }
+
 /* 新增样式 */
 h2 {
   position: absolute; /* 设置为绝对定位 */
@@ -92,8 +101,14 @@ input {
   border-radius: 4px;
 }
 
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px; /* 设置按钮和输入框之间的垂直间距 */
+}
+
 button {
-  width: 100%;
+  width: 100px;
   padding: 8px;
   font-size: 16px;
   background-color: #007bff;
@@ -101,5 +116,6 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin: 0 5px; /* 设置按钮之间的间距 */
 }
 </style>

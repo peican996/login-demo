@@ -1,7 +1,8 @@
-import { createWebHistory, createRouter } from 'vue-router';
+import {createWebHistory, createRouter} from 'vue-router';
 import Login from '../views/LoginView.vue';
 import Home from '../views/HomeView.vue';
 import HelloWorld from '../components/HelloWorld.vue';
+import Register from '../views/RegisterView.vue';
 
 export default createRouter({
     history: createWebHistory(),
@@ -21,5 +22,10 @@ export default createRouter({
             name: 'Hello',
             component: HelloWorld,
         },
+        {
+            path: '/register',
+            name: 'Register',
+            component: Register,
+        }
     ],
 });
