@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h2>登录测试</h2>
+  <div class="page">
+    <h2>认证登录</h2>
     <form @submit.prevent="login">
       <div>
         <label for="username">用户名：</label>
@@ -42,15 +42,36 @@ const login = () => {
 </script>
 
 <style scoped>
-/* 样式可以根据自己的需求进行调整 */
+.page {
+  /* 设置背景图片 */
+  background-image: url("../../public/background/blackMap.jpg");
+  /* 设置背景平铺方式 */
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* 其他样式 */
+  width: 100%;
+  height: 100vh;
+  /* 其他样式 */
+}
+/* 新增样式 */
 h2 {
-  text-align: center;
-  margin-bottom: 20px;
+  position: absolute; /* 设置为绝对定位 */
+  top: 27%; /* 位于账号输入框上方，可以根据需要调整距离 */
+  left: 50%;
+  transform: translateX(-50%); /* 水平居中 */
+  color: white;
 }
 
 form {
   width: 300px;
   margin: 0 auto;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 div {
@@ -60,6 +81,7 @@ div {
 label {
   display: block;
   font-weight: bold;
+  color: white;
 }
 
 input {
