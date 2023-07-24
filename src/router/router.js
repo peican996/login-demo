@@ -26,6 +26,11 @@ export default createRouter({
             path: '/register',
             name: 'Register',
             component: Register,
+        },
+        {
+            path: '/login',
+            name: 'Login',
+            component: Login,
         }
     ],
 });
